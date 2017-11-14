@@ -65,16 +65,16 @@ string arrayToString(const SuperArray& obj)
  */
 int &SuperArray::operator[](const int index)
 {
-	int realIndex = index;
+	int realIndex = index - lowIndex;
 	//
 	// Define your logic here
 	//
-    if (realIndex < lowIndex)
+    if (index < lowIndex)
     {
         throw "Invalid index request, too low";
     }
 
-    if (realIndex > highIndex)
+    if (index > highIndex)
     {
 
         throw "Invalid index request, too high";
@@ -96,4 +96,9 @@ int SuperArray::getHighIndex() const
 unsigned int SuperArray::length() const
 {
     return capacity;
+}
+
+void SuperArray::resize(const int begIndex, const unsigned int capacity)
+{
+
 }
