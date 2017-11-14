@@ -18,6 +18,8 @@ SuperArray::SuperArray(const int begIndex, const unsigned int capacity)
 	 */
 	arr = new int[capacity];
     SuperArray::capacity = capacity;
+    lowIndex = begIndex;
+    highIndex = begIndex + capacity - 1;
 	// Other info below
 }
 
@@ -67,5 +69,31 @@ int &SuperArray::operator[](const int index)
 	//
 	// Define your logic here
 	//
+    if (realIndex < lowIndex)
+    {
+        throw "Invalid index request, too low";
+    }
+
+    if (realIndex > highIndex)
+    {
+
+        throw "Invalid index request, too high";
+
+    }
 	return arr[realIndex];
+}
+
+int SuperArray::getLowIndex() const
+{
+	return lowIndex;
+}
+
+int SuperArray::getHighIndex() const
+{
+    return highIndex;
+}
+
+unsigned int SuperArray::length() const
+{
+    return capacity;
 }
