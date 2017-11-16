@@ -24,7 +24,7 @@ SuperArray::SuperArray(const int begIndex, const unsigned int capacity)
 }
 
 /*!
- * Class Destructor
+ * Class Destructor deletes the original Array
  */
 SuperArray::~SuperArray()
 {
@@ -83,22 +83,35 @@ int &SuperArray::operator[](const int index)
     realIndex -= getLowIndex();
 	return arr[realIndex];
 }
-
+/*!
+ * LowIndex method to see min of Array
+ * @return the low of the Array
+ */
 int SuperArray::getLowIndex() const
 {
 	return lowIndex;
 }
-
+/*!
+ * HighIndex method to see max of Array
+ * @return the max of Array
+ */
 int SuperArray::getHighIndex() const
 {
     return highIndex;
 }
-
+/*!
+ * length function
+ * @return capacity/ size of Array
+ */
 unsigned int SuperArray::length() const
 {
     return capacity;
 }
-
+/*!
+ * resize function
+ * @param begIndex where Array begins
+ * @param capacity size of Array
+ */
 void SuperArray::resize(const int begIndex, const unsigned int capacity)
 {
 
@@ -107,7 +120,7 @@ void SuperArray::resize(const int begIndex, const unsigned int capacity)
     int difference = tempC - capacity;
     int j = lowIndex - begIndex;
 
-    for(int i  = 0; i < SuperArray::capacity; ++i)
+    for(int i  = 0; i < capacity; ++i)
     {
         Newarr[j + i] = arr[i];
     }
