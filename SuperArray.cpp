@@ -107,9 +107,9 @@ void SuperArray::resize(const int begIndex, const unsigned int capacity)
     int difference = tempC - capacity;
     int j = lowIndex - begIndex;
 
-    for(int i  = 0; i < capacity; ++i)
+    for(int i  = 0; i < SuperArray::capacity; ++i)
     {
-        Newarr[i + 2] = arr[i];
+        Newarr[j + i] = arr[i];
     }
 
     //a++;
